@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm đại học khổi D</title>
+</head>
+<body>
+    <h1>Tính điểm đại học khối D</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for="math">Điểm Toán</label></td>
+                <td><input id="math" name="math" size="3"></td>
+            </tr>
+            <tr>
+                <td><label for="literature">Điểm Văn</label></td>
+                <td><input id="literature" name="literature" size="3"></td>
+            </tr>
+            <tr>
+                <td><label for="english">Điểm Anh</label></td>
+                <td><input id="english" name="english" size="3"></td>
+            </tr>
+            <tr>
+                <td><local for="legend">Khu vực</local></td>
+                <td>
+                    <select id="legend" >
+                        <option value="KV1">KV1</option>
+                        <option value="KV2">KV2</option>
+                        <option value="KV2-NT">KV2-NT</option>
+                        <option value="KV3">KV3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" name="score" value="Tính điểm" onclick="calculateScore()"></td>
+            </tr>
+        </table>
+        <p id = "total"></p>
+    </form>
+    <script>
+        function calculateScore(){
+            
+            let inputMath = document.getElementById('math');
+            let math = Number(inputMath.value);
+            let inputLiterature = document.getElementById('literature');
+            let literature = Number(inputLiterature.value);
+            let inputEnglish = document.getElementById('english');
+            let english = Number(inputEnglish.value);
+            let inputLegend = document.getElementById('legend');
+            let legend = inputLegend.value;
+            let noLegend = math + literature + english;
+            console.log(legend);
+            let total = document.getElementById('total');
+            total.style.color = "red";
+            switch(legend){
+                case "KV1":
+                    total.innerHTML = `Tổng điểm khối D của bạn là: ${noLegend + 0.75} điểm`;
+                    break;
+                case "KV2":
+                    total.innerHTML = `Tổng điểm khối D của bạn là: ${noLegend + 0.25} điểm`;
+                    break;
+                case "KV2-NT":
+                    total.innerHTML = `Tổng điểm khối D của bạn là: ${noLegend + 0.5} điểm`;
+                    break;
+                case "KV3":
+                    total.innerHTML =`Tổng điểm khối D của bạn là: ${noLegend} điểm`;
+                    break;
+            }
+        }
+
+    </script>
+</body>
+</html>

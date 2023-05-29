@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu giá hoa quả</title>
+</head>
+
+<body>
+    <p style="font-weight:bold;">Giá hoa quả</p>
+    <form>
+        <select id="item">
+            <option value="Ổi">Ổi</option>
+            <option value="Dưa hấu">Dưa hấu</option>
+            <option value="Táo">Táo</option>
+            <option value="Xoài">Xoài</option>
+            <option value="Cam">Cam</option>
+            <option value="Chôm chôm">Chôm chôm</option>
+            <option value="Măng cụt">Măng cụt</option>
+        </select>
+        <button type="button" id="search" onclick="seePrice();">Xem giá</button>
+    <p id ="price" style="font-weight:bold;"></p>
+    </form>
+    <script>
+        
+        let seePrice = function() {
+            let select = document.getElementById('item');
+            let value = select.value;
+            let price = document.getElementById('price');
+            switch(value){
+            case "Ổi":
+            case "Dưa hấu":
+                price.innerHTML= "20000 VNĐ/kg";
+                break
+            case "Táo":
+            case "Xoài":
+                price.innerHTML = "30000 VNĐ/kg";
+                break;
+            case "Cam":
+            case "Chôm chôm":
+                price.innerHTML = "40000 VNĐ/kg";
+                break;
+            case "Măng cụt":
+                price.innerHTML = "50000 VNĐ/kg";
+                break;
+        }
+        }
+        
+    </script>
+    
+</body>
+</html>
