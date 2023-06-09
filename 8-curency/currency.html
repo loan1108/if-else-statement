@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Currency convert</title>
+
+    <style>
+      th,
+      td {
+        padding: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <table>
+        <tr>
+          <th>Amount</th>
+
+          <th>From Currency</th>
+
+          <th>To Currency</th>
+        </tr>
+
+        <tr>
+          <td>
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              placeholder="Input amount"
+            />
+          </td>
+
+          <td>
+            <select id="from-Currency">
+              <option value="23000">VND</option>
+
+              <option value="1">USD</option>
+
+              <option value="7.12">Yan</option>
+            </select>
+          </td>
+
+          <td>
+            <select id="to-Currency">
+              <option value="23000">VND</option>
+
+              <option value="1" selected>USD</option>
+
+              <option value="7.12">Yan</option>
+            </select>
+          </td>
+
+          <td>
+            <button type="button" onclick="convert(getValue())">Convert</button>
+          </td>
+        </tr>
+      </table>
+
+      <p id="result"></p>
+    </form>
+
+    <script>
+      let result = document.getElementById("result");
+
+      function getValue() {
+        let amount = document.getElementById("amount");
+
+        let fromCurrency = document.getElementById("from-Currency");
+
+        let toCurrency = document.getElementById("to-Currency");
+
+        amount = +amount.value;
+
+        fromCurrency = +fromCurrency.value;
+
+        toCurrency = +toCurrency.value;
+
+        return { amount, fromCurrency, toCurrency };
+      }
+
+      function convert() {
+        amount = getValue().amount;
+
+        fromCurrency = getValue().fromCurrency;
+
+        toCurrency = getValue().toCurrency;
+
+        let convertValue = (amount * toCurrency) / fromCurrency;
+
+        convertValue = convertValue.toFixed(2);
+
+        if (!!amount) {
+          result.style.color = "blue";
+
+          result.innerHTML = "Result: " + convertValue;
+        } else {
+          result.style.color = "red";
+
+          result.innerHTML = "Bạn chưa nhập số tiền";
+        }
+      }
+    </script>
+  </body>
+</html>

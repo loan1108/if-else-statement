@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính số ngày trong một tháng</title>
+  </head>
+  <body>
+    <form>
+      <input type="number" name="month" id="month" />
+      <input type="button" value="Tính số ngày" onclick="getDaysOfMonth()" />
+      <p id="result"></p>
+    </form>
+    <script>
+      let monthInput = document.getElementById("month");
+      let result = document.getElementById("result");
+      function getDaysOfMonth() {
+        let month = +monthInput.value;
+        if (month >= 1 && month <= 12) {
+          switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+              result.innerHTML = `Tháng ${month} có 31 ngày`;
+              break;
+            case 2:
+              result.innerHTML = `Tháng 2 có 28 hoặc 29 ngày`;
+              break;
+            default:
+              result.innerHTML = `Tháng ${month} có 30 ngày`;
+          }
+        }else {
+            result.innerHTML = `Chỉ nhập các số có giá trị nguyên từ 1 đến 12`;
+        }
+      }
+    </script>
+  </body>
+</html>
